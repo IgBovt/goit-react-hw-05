@@ -14,10 +14,21 @@
   color: rgb(255, 255, 255, 60%);
   text-decoration: none;
   transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 .link:hover {
   color: rgb(255, 255, 255);
 }
 .isActive {
   color: rgb(255, 255, 255);
+}
+.isActive::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: -13px;
+  left: 0;
 }
