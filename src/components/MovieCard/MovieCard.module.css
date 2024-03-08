@@ -4,4 +4,29 @@
   background-color: rgb(255, 255, 255, 5%);
   border: 1px solid rgb(255, 255, 255, 20%);
   border-radius: 8px;
+  cursor: pointer;
+  transition: border 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 228px;
+  height: 300px;
+}
+.textContainer {
+  padding: 24px 12px 12px 12px;
+}
+.title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.wrapper {
+  display: flex;
+  color: #9ca4ab;
+  align-items: center;
+  justify-content: start;
+  font-size: 12px;
+}
+.card:hover {
+  border: 1px solid rgb(255, 255, 255, 80%);
 }

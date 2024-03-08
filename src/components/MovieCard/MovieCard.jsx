@@ -7,17 +7,18 @@ export default function MovieCard({
   return (
     <div className={css.card}>
       <img
+        className={css.img}
         src={'https://image.tmdb.org/t/p/w500' + poster_path}
         alt={original_title}
         width="228"
-        height="335"
+        height="300"
       />
-      <div>
-        <h3>{original_title}</h3>
-        <div>
-          <p>{release_date}</p>
+      <div className={css.textContainer}>
+        <h3 className={css.title}>{original_title}</h3>
+        <div className={css.wrapper}>
+          <p>{release_date.slice(0, 4)}</p>
           <LuDot />
-          <p>User Score {vote_average}</p>
+          <p>User Score {vote_average.toFixed(1)}</p>
         </div>
       </div>
     </div>
