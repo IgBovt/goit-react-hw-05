@@ -3,6 +3,8 @@ import Navigation from './components/Navigation/Navigation';
 import HomePage from './pages/HomePage/HomePage';
 import MoviesPage from './pages/MoviesPage/MoviesPage';
 import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
+import MovieCast from './components/MovieCast/MovieCast';
+import MovieReviews from './components/MovieReviews/MovieReviews';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
@@ -12,9 +14,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movies" element={<MovieDetailsPage />}>
-          {/* <Route path="client" element={<ClientInfo />} />
-          <Route path="receipt" element={<PaymentReceipt />} /> */}
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

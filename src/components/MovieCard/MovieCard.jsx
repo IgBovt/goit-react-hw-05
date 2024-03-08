@@ -1,10 +1,12 @@
 import { LuDot } from 'react-icons/lu';
+import { Link } from 'react-router-dom';
 import css from './MovieCard.module.css';
 
 export default function MovieCard({
-  film: { original_title, poster_path, release_date, vote_average },
+  film: { original_title, poster_path, release_date, vote_average, id },
 }) {
   return (
+    <Link className={css.link} to={`/movies/${id}`}>
     <div className={css.card}>
       <img
         className={css.img}
@@ -22,5 +24,6 @@ export default function MovieCard({
         </div>
       </div>
     </div>
+    </Link>
   );
 }

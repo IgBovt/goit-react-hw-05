@@ -18,6 +18,14 @@ export const getMoviesName = async (searchQuery, page) => {
       page,
     },
   });
-  console.log(response.data);
+  return response.data;
+};
+
+export const getMoviesId = async id => {
+  const response = await axios.get('/movie/' + id, {
+    params: {
+      language: 'en-US',
+    },
+  });
   return response.data;
 };
