@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getMoviesName } from '../../API-fetch';
 import { Hourglass } from 'react-loader-spinner';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import MovieList from '../../components/MovieList/MovieList';
@@ -16,6 +17,7 @@ export default function MoviesPage() {
   function handleSearch(inputQuery) {
     setQuery(inputQuery);
     setPage(1);
+    setFilms([]);
   }
 
   useEffect(() => {
@@ -24,7 +26,9 @@ export default function MoviesPage() {
         setLoader(true);
         setError(false);
         const data = await getMoviesName(query, page);
-        setFilms(data.results);
+        setFilms(prevFilms => {
+          return [...prevFilms, ...data.results];
+        });
       } catch (error) {
         setError(true);
       } finally {
@@ -34,9 +38,16 @@ export default function MoviesPage() {
 
     getData();
   }, [query, page]);
-
+  function handleLoadMore() {
+    setPage(page + 1);
+  }
   return (
     <div>
+      <InfiniteScroll
+        dataLength={films.length}
+        next={handleLoadMore}
+        hasMore={true}
+      ></InfiniteScroll>
       <SearchForm onSearch={handleSearch} />
       {!error && <MovieList topFilms={films} />}
       {error && <ErrorMessage />}

@@ -12,4 +12,5 @@
   flex-direction: row;
   gap: 40px 24px;
   flex-wrap: wrap;
+  margin-bottom: 60px;
 }
