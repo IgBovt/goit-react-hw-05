@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useParams, NavLink, Outlet } from 'react-router-dom';
 import { getMoviesId } from '../../API-fetch';
+import MovieDetail from '../../components/MovieDetail/MovieDetail';
 
 export default function MovieDetailsPage() {
+  const [film, setFilm] = useState(null);
+
   const { movieId } = useParams();
-  console.log(movieId);
   useEffect(() => {
     async function getData() {
       try {
         const data = await getMoviesId(movieId);
-        console.log(data);
+        setFilm(data);
       } catch (error) {
       } finally {
       }
@@ -18,5 +20,5 @@ export default function MovieDetailsPage() {
     getData();
   }, [movieId]);
 
-  return <p>MovieDetailsPage</p>;
+  return film && <MovieDetail film={film} />;
 }
