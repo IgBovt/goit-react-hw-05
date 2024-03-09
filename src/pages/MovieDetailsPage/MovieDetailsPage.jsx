@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams, NavLink, Outlet } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import { Hourglass } from 'react-loader-spinner';
 import { getMoviesId } from '../../API-fetch';
 import MovieDetail from '../../components/MovieDetail/MovieDetail';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import css from './MovieDetailsPage.module.css';
-
 
 export default function MovieDetailsPage() {
   const [film, setFilm] = useState(null);
@@ -43,6 +42,7 @@ export default function MovieDetailsPage() {
           colors={['#fafafa', '#fafafa']}
         />
       )}
+      <Outlet />
     </>
   );
 }

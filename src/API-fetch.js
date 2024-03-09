@@ -29,3 +29,21 @@ export const getMoviesId = async id => {
   });
   return response.data;
 };
+
+export const getActors = async id => {
+  const response = await axios.get('/movie/' + id + '/credits', {
+    params: {
+      language: 'en-US',
+    },
+  });
+  return response.data;
+};
+
+export const getReviews = async id => {
+  const response = await axios.get('/movie/' + id + '/reviews', {
+    params: {
+      language: 'en-US',
+    },
+  });
+  return response.data;
+};
