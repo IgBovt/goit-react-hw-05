@@ -1,3 +1,38 @@
 .container {
   margin: 100px 100px 70px 100px;
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  justify-content: space-between;
+}
+.textContainer {
+  width: 800px;
+}
+.title {
+  line-height: 0.9;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.infoWrapper {
+  display: flex;
+  color: #9ca4ab;
+  align-items: center;
+  justify-content: start;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+.mark {
+  font-size: 20px;
+}
+.wrapper {
+  margin-bottom: 32px;
+}
+.subtitle {
+  font-size: 18px;
+  font-style: bold;
+  margin-bottom: 12px;
+}
+.text {
+  color: #9ca4ab;
+  font-size: 16px;
 }

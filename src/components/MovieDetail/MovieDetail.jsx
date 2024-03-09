@@ -20,24 +20,28 @@ export default function MovieDetail({
         width="300"
         height="400"
       />
-      <div>
-        <h1>{original_title}</h1>
-        <div>
+      <div className={css.textContainer}>
+        <h1 className={css.title}>{original_title}</h1>
+        <div className={css.infoWrapper}>
           <p>{release_date.slice(0, 4)}</p>
-          <LuDot />
+          <LuDot className={css.mark} />
           <p>User Score {vote_average.toFixed(1)}</p>
         </div>
-        <div>
-          <p>Genres</p>
-          <p>{genres.map(genre => genre.name).join(', ')}</p>
+        <div className={css.wrapper}>
+          <h3 className={css.subtitle}>Genres</h3>
+          <p className={css.text}>
+            {genres.map(genre => genre.name).join(', ')}
+          </p>
+        </div>
+        <div className={css.wrapper}>
+          <h3 className={css.subtitle}>Country</h3>
+          <p className={css.text}>
+            {production_countries.map(country => country.name).join(', ')}
+          </p>
         </div>
         <div>
-          <p>Country</p>
-          <p>{production_countries.map(country => country.name).join(', ')}</p>
-        </div>
-        <div>
-          <p>Overview</p>
-          <p>{overview}</p>
+          <p className={css.subtitle}>Overview</p>
+          <p className={css.text}>{overview}</p>
         </div>
       </div>
     </div>
