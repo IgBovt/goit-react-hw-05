@@ -1,5 +1,11 @@
+import { NavLink } from 'react-router-dom';
+import clsx from 'clsx';
 import { LuDot } from 'react-icons/lu';
 import css from './MovieDetail.module.css';
+
+const makeLinkClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.isActive);
+};
 
 export default function MovieDetail({
   film: {
@@ -39,10 +45,22 @@ export default function MovieDetail({
             {production_countries.map(country => country.name).join(', ')}
           </p>
         </div>
-        <div>
+        <div className={css.wrapper}>
           <p className={css.subtitle}>Overview</p>
           <p className={css.text}>{overview}</p>
         </div>
+        <ul className={css.list}>
+          <li className={css.item}>
+            <NavLink to="cast" className={makeLinkClass}>
+              See Top Cast
+            </NavLink>
+          </li>
+          <li className={css.item}>
+            <NavLink to="reviews" className={makeLinkClass}>
+              See Reviews
+            </NavLink>
+          </li>
+        </ul>
       </div>
     </div>
   );
