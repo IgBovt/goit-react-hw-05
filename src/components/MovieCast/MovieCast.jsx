@@ -34,7 +34,11 @@ export default function MovieCast() {
             <li className={css.item} key={actor.id}>
               <img
                 className={css.img}
-                src={'https://image.tmdb.org/t/p/w500' + actor.profile_path}
+                src={
+                  actor.profile_path
+                    ? 'https://image.tmdb.org/t/p/w500' + actor.profile_path
+                    : 'https://cdn.pixabay.com/photo/2013/07/12/15/33/cutting-150066_1280.png'
+                }
                 alt={actor.name}
                 width="80"
                 height="80"
