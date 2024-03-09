@@ -30,7 +30,8 @@
 .subtitle {
   font-size: 18px;
   font-style: bold;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  line-height: 0.9;
 }
 .text {
   color: #9ca4ab;
