@@ -4,9 +4,10 @@ import css from './SearchForm.module.css';
 
 export default function SearchForm({ onSearch }) {
   const handleSubmit = (values, actions) => {
-    onSearch(values.query);
+    onSearch(values.query.toLowerCase());
     actions.resetForm();
   };
+
   return (
     <Formik initialValues={{ query: '' }} onSubmit={handleSubmit}>
       <Form className={css.form}>

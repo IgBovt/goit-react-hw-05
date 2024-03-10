@@ -5,19 +5,22 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import MovieList from '../../components/MovieList/MovieList';
+import { useSearchParams } from 'react-router-dom';
 import css from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const [films, setFilms] = useState([]);
   const [page, setPage] = useState(1);
-  const [query, setQuery] = useState();
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
+  const [params, setParams] = useSearchParams();
+  const filmSearch = params.get('query') ?? '';
 
   function handleSearch(inputQuery) {
-    setQuery(inputQuery);
     setPage(1);
     setFilms([]);
+    params.set('query', inputQuery);
+    setParams(params);
   }
 
   useEffect(() => {
@@ -25,7 +28,8 @@ export default function MoviesPage() {
       try {
         setLoader(true);
         setError(false);
-        const data = await getMoviesName(query, page);
+        const data = await getMoviesName(filmSearch, page);
+        console.log(filmSearch);
         setFilms(prevFilms => {
           return [...prevFilms, ...data.results];
         });
@@ -37,7 +41,7 @@ export default function MoviesPage() {
     }
 
     getData();
-  }, [query, page]);
+  }, [filmSearch, page]);
   function handleLoadMore() {
     setPage(page + 1);
   }
