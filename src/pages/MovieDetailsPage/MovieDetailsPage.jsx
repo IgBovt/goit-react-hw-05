@@ -50,6 +50,7 @@ export default function MovieDetailsPage() {
           colors={['#fafafa', '#fafafa']}
         />
       )}
+
       <Outlet />
     </>
   );
