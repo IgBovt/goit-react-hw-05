@@ -29,7 +29,6 @@ export default function MoviesPage() {
         setLoader(true);
         setError(false);
         const data = await getMoviesName(filmSearch || '', page);
-        console.log(filmSearch);
         setFilms(prevFilms => {
           return [...prevFilms, ...data.results];
         });
