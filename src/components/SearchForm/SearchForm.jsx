@@ -1,19 +1,18 @@
 import { Formik, Form, Field } from 'formik';
 import { IoMdSearch } from 'react-icons/io';
 import css from './SearchForm.module.css';
-// import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 export default function SearchForm({ onSearch }) {
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = values => {
     onSearch(values.query.toLowerCase());
-    actions.resetForm();
   };
 
-  // const [params] = useSearchParams();
-  // const filmSearch = params.get('query') ?? '';
+  const [params] = useSearchParams();
+  const filmSearch = params.get('query') ?? '';
 
   return (
-    <Formik initialValues={{ query: '' }} onSubmit={handleSubmit}>
+    <Formik initialValues={{ query: filmSearch }} onSubmit={handleSubmit}>
       <Form className={css.form}>
         <Field
           className={css.input}
