@@ -7,6 +7,7 @@ import { IoIosArrowRoundBack } from 'react-icons/io';
 import MovieDetail from '../../components/MovieDetail/MovieDetail';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import css from './MovieDetailsPage.module.css';
+import { Suspense } from 'react';
 
 export default function MovieDetailsPage() {
   const [film, setFilm] = useState(null);
@@ -51,7 +52,9 @@ export default function MovieDetailsPage() {
         />
       )}
 
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
