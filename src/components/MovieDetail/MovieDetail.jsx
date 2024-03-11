@@ -66,9 +66,6 @@ export default function MovieDetail({
           </ul>
         </div>
       </div>
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
     </>
   );
 }
